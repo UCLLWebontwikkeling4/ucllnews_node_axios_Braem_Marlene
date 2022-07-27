@@ -1,9 +1,9 @@
 import axios from 'axios'
  
-getLectors()
+getNewsItems()
 
-function getLectors() {
-    axios.get('http://localhost:8080/Controller?command=Overview')
+function getNewsItems() {
+    axios.get('http://localhost:8080/Controller?command=Random')
       .then(response => console.log(response.data))
-        .then(()=>setTimeout(getLectors, 1000))
+        .then(()=>setTimeout(getNewsItems, 1000))
 }

@@ -14,7 +14,7 @@ const server = http.createServer((req, res) => {
             res.write('Hello world!')
             res.end();
             break
-        case '/lectors':
+        case '/news/all':
             res.writeHead(200, { 'Content-Type': 'text/html' })
             // call data => build html with data => write html => end response
             makeGetRequest().then(data => buildHtml(data)).then(html => res.write(html)).then(() => res.end())
@@ -27,17 +27,17 @@ server.listen(port, hostname, () => {
  })
 
 async function makeGetRequest () {
-    let res = await axios.get('http://localhost:8080/Controller?command=Overview')
+    let res = await axios.get('http://localhost:8080/Controller?command=Random')
     return res.data
 }
 
 function buildHtml(data) {
     let html = json2html.transform(data,
-        {"<>": "li", "html":[{"<>": "span", "text": "${firstname} ${name}"}]})
+        {"<>": "li", "html":[{"<>": "span", "text": "${title} ${text} ${author} ${date.dayOfMonth}  ${date.month}  ${date.year}"}]})
  
     return  '<!DOCTYPE html>'+ 
             '<html>'+
-                '<head>LECTORS</head>'+ 
+                '<head>NEWS ITEMS</head>'+ 
                 '<body>' + html + '</body>'+
             '</html>'
   }
