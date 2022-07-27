@@ -1,0 +1,34 @@
+{
+  "name": "axiosinnodejs",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "scripts": {
+    "startaxios": "nodemon axiosconsole.ts",
+    "start": "nodemon app.ts --delay 3"
+  },
+  "keywords": [],
+  "author": "Web4 lectoren",
+  "license": "ISC",
+  "nodemonConfig": {
+    "ext": "ts",
+    "delay": "3",
+    "execMap": {
+      "ts": "ts-node"
+    }
+  },
+  "dependencies": {
+    "async": "^3.2.4",
+    "axios": "^0.25.0",
+    "install": "^0.13.0",
+    "node-json2html": "^2.2.2",
+    "npm": "^8.15.0",
+    "of": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.14",
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5"
+  },
+  "description": ""
+}
